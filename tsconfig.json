@@ -21,7 +21,9 @@
       "@types/*": ["src/types/*"],
       "@config": ["./config.ts"]
     },
-    "skipLibCheck": true 
+    "types": ["astro/client"],
+    "skipLibCheck": true,
+    "allowJs": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "config.ts"]
 }
