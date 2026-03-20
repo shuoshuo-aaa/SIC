@@ -20,12 +20,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@pages/*": ["src/pages/*"],
       "@styles/*": ["src/styles/*"],
-      "@types/*": ["src/types/*"],
-      "types": ["astro/client"],
-      "@config": ["./config.ts"]
-    },
-    "types": ["astro/client"],
-    "skipLibCheck": true
-  },
-  "include": ["src/**/*"]
+      "@types/*": ["src/types/*"]
+    }
+  }
 }
