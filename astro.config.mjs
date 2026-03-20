@@ -23,7 +23,6 @@ import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.js";
-import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   // 1. 你原本可能已經有的設定
@@ -154,9 +153,21 @@ export default defineConfig({
 			],
 		],
 	},
-    vite: {
+	vite: {
         define: {
-          'process.env': {},
+            'process.env': {}, // 解決你截圖中的 process 錯誤
         },
-      },
-    });
+        build: {
+            rollupOptions: {
+                onwarn(warning, warn) {
+                    if (
+                        warning.message.includes("is dynamically imported by") &&
+                        warning.message.includes("but also statically imported by")
+                    ) {
+                        return;
+                    }
+                    warn(warning);
+                },
+            },
+        },
+    },
