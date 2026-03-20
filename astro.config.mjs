@@ -23,11 +23,12 @@ import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.js";
+import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
 export default defineConfig({
-	site: "https://shuoshuo-aaa.github.io",
-	base: "/SIC/",
+  // 1. 你原本可能已經有的設定
+  site: "https://shuoshuo-aaa.github.io",
+  base: "/SIC",
 	trailingSlash: "always",
 	integrations: [
 		tailwind({
@@ -153,20 +154,9 @@ export default defineConfig({
 			],
 		],
 	},
-	vite: {
-		build: {
-			rollupOptions: {
-				onwarn(warning, warn) {
-					// temporarily suppress this warning
-					if (
-						warning.message.includes("is dynamically imported by") &&
-						warning.message.includes("but also statically imported by")
-					) {
-						return;
-					}
-					warn(warning);
-				},
-			},
-		},
-	},
-});
+    vite: {
+        define: {
+          'process.env': {},
+        },
+      },
+    });
