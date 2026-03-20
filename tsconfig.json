@@ -6,6 +6,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "types": ["astro/client"],
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -19,11 +21,11 @@
       "@pages/*": ["src/pages/*"],
       "@styles/*": ["src/styles/*"],
       "@types/*": ["src/types/*"],
+      "types": ["astro/client"],
       "@config": ["./config.ts"]
     },
     "types": ["astro/client"],
-    "skipLibCheck": true,
-    "allowJs": true
+    "skipLibCheck": true
   },
-  "include": ["src/**/*", "config.ts"]
+  "include": ["src/**/*"]
 }
