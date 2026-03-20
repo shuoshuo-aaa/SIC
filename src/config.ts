@@ -10,7 +10,7 @@ import { LinkPreset } from "./types/config";
 export const siteConfig: SiteConfig = {
 	title: "SIC的神奇網站",
 	subtitle: "是一個政大附中高二生",
-	lang: "en", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
+	lang: "zh-TW", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
 	themeColor: {
 		hue: 250, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
 		fixed: false, // Hide the theme color picker for visitors
@@ -40,17 +40,26 @@ export const siteConfig: SiteConfig = {
 };
 
 export const navBarConfig: NavBarConfig = {
-	links: [
-		LinkPreset.Home,
-		LinkPreset.Archive,
-		LinkPreset.About,
-		{
-			name: "GitHub",
-			url: "https://github.com/saicaca/fuwari", // Internal links should not include the base path, as it is automatically added
-			external: true, // Show an external link icon and will open in a new tab
-		},
-	],
-};
+  links: [
+    {
+      name: '首頁',
+      url: '/',
+    },
+    {
+      name: '彙整',
+      url: '/archive',
+    },
+    {
+      name: '關於',
+      url: '/about',
+    },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/shuoshuo-aaa/SIC',
+      external: true,
+    },
+  ],
+}
 
 export const profileConfig: ProfileConfig = {
 	avatar: "SIC頭像.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
